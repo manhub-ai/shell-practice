@@ -9,15 +9,15 @@ C="\e[36m"
 W="\e[37m"
 N="\e[0m"
 
-mkdir -p $LOGS_FOLDER
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1)
 LOF_FILE="LOGS_FOLDER/$SCRIPT_NAME.log"
 
-USERID=$(id -u); then
+USERID=$(id -u)
 
-
+mkdir -p $LOGS_FOLDER
 echo "scrip started executing at :$(date)"
+
 if [USERID -ne 0 ]; then
     echo "ERROR: Please run the script with root user access"
     exit 1
