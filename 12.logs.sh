@@ -18,7 +18,7 @@ USERID=$(id -u)
 mkdir -p $LOGS_FOLDER
 echo "scrip started executing at :$(date)"
 
-if [USERID -ne 0 ]; then
+if [$USERID -ne 0 ]; then
     echo "ERROR: Please run the script with root user access"
     exit 1
 fi
@@ -33,12 +33,12 @@ VALIDATE() {
     fi
 }
 
-dnf list installed mysql-server >> $LOG_FILE
+dnf list installed nginx >> $LOG_FILE
 if [ $? -nt 0 ]; then
-    dnf install mysql-server -y >> $LOG_FILE
-    VALIDATE $? "MYSQL"
+    dnf install nginx -y >> $LOG_FILE
+    VALIDATE $? "nginx"
 else 
-     echo -e "mysql server is already installed ... $G SKIPPING..$N"
+     echo -e "nginx is already installed ... $G SKIPPING..$N"
 fi
 
 
