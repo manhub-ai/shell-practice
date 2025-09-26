@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo " Cource name is: #COURSE"
+echo " Cource name is: $COURSE"
