@@ -23,7 +23,7 @@ VALIDATE(){ #functions receive inputs through arguments just like scripts
         echo "installing $2 ... $R FAILURE $N"
         exit 1
     else
-        echo "installing $2 ...$G SUCCESS $N"
+        echo "installing $2 ... $G SUCCESS $N"
     fi
 }
 
@@ -36,7 +36,7 @@ else
     echo -e "Mysql is already installed ...$Y SKIPPING... $N"
 fi
 
-dnf list installed nginx21
+dnf list installed nginx
 if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? "Nginx"
