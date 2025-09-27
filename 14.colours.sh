@@ -10,5 +10,5 @@ C="\e[36m"
 W="\e[37m"
 N="\e[0m"
 
-echo -e "$M Hello Manjunatha, $C Good Morning $N"
-echo -e " $R check this colour RED $N"
+echo -e "$G Hello Manjunatha, $W Good Morning $N"
+echo -e "$Y check this colour RED $N"
