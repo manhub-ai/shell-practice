@@ -41,8 +41,8 @@ do
     dnf list installed $package $>>$LOG_FILE
     #if exit status is 0 the already installed, if -ne 0 then need to install
     if [ $? -ne 0 ]; then
-        dnf install $package $>>$LOG_FILE
-        VALIDATE $? "$packages"
+        dnf install "$package" $>>$LOG_FILE
+        VALIDATE $? "$package"
     else
         echo - "$packages are already installed ...$Y SKIPPING $N" 
     fi   
