@@ -3,7 +3,7 @@
 #check if user is root or not
 USERID=$(id -u)
 
-if [$USERID -ne 0 ]; then
+if [ $USERID -ne 0 ]; then
     echo "ERROR: Please run this script as root or using sudo"
     exit 1
 fi
