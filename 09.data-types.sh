@@ -8,10 +8,8 @@ SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
 echo "Sum is $SUM"
 
-CRICKET_TEAM=("Abshick" "Dhoni" "Kohli" "Rohit" "Jadeja")
-
-
 # Size=4, Max index=5
+CRICKET_TEAM=("Abshick" "Dhoni" "Kohli" "Rohit" "Jadeja")
 echo "Players in the team are: ${CRICKET_TEAM[@]}"
 echo "Captain of the team is: ${CRICKET_TEAM[2]}"
 echo "Wicket keeper of the team is: ${CRICKET_TEAM[1]}"
