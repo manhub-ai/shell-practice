@@ -35,26 +35,16 @@ VALIDATE(){ #functions receive inputs through arguments just like scripts
     fi
 }
 
-dnf list installed mysql | tee -a $LOG_FILE
-if [ $? -ne 0 ]; then
-    dnf install mysql -y | tee -a $LOG_FILE
-    VALIDATE $? "Mysql"
-else
-    echo -e "Mysql is already installed ...$Y SKIPPING... $N"
-fi
+for package in $@
+do
+    #check package is already installed or not
+    dnf list installed $package $>>$LOG_FILE
+    #if exit status is 0 the already installed, if -ne 0 then need to install
+    if [ $? -ne 0 ]; then
+        dnf install $package $>>$LOG_FILE
+        VALIDATE $? "$packages"
+    else
+        echo - "$packages are already installed ...$Y SKIPPING $N" 
+    fi   
 
-dnf list installed nginx | tee -a $LOG_FILE
-if [ $? -ne 0 ]; then
-    dnf install nginx -y | tee -a $LOG_FILE
-    VALIDATE $? "Nginx"
-else
-    echo -e "Nginx is already installed ...$Y SKIPPING... $N"
-fi
-
-dnf list installed python3 | tee -a $LOG_FILE
-if [ $? -ne 0 ]; then
-    dnf install python3 -y | tee -a $LOG_FILE
-    VALIDATE $? "Python3"
-else
-    echo -e "Python3 is already installed ...$Y SKIPPING... $N"
-fi
+done
