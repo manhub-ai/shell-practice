@@ -5,7 +5,7 @@ NUMBER=$1
 
 if [ $NUMBER -ne 0 ] ; then
     echo "The given number $NUMBER is grater than 10"
-elif [ $NUMBER -eq 10 ] ; then
+elif [ $NUMBER -ne 10 ] ; then
     echo "The given number $NUMBER is equal to 10"
 else
     echo "The given number $NUMBER is less than 10"
