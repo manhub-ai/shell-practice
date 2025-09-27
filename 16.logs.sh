@@ -28,10 +28,10 @@ fi
 
 VALIDATE(){ #functions receive inputs through arguments just like scripts
     if [ $1 -ne 0 ]; then
-        echo "installing $2 ... $R FAILURE $N"
+        echo -e "installing $2 ... $R FAILURE $N"
         exit 1
     else
-        echo "installing $2 ... $G SUCCESS $N"
+        echo -e "installing $2 ... $G SUCCESS $N"
     fi
 }
 
