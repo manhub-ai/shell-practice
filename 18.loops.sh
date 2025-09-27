@@ -35,7 +35,7 @@ VALIDATE(){ #functions receive inputs through arguments just like scripts
     fi
 }
 
-for package in $@
+for package in "$@"
 do
     #check package is already installed or not
     dnf list installed $package $>>$LOG_FILE
